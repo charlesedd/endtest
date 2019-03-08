@@ -7,8 +7,7 @@ This project is designed to be run inside the laveral homestead vagrant containe
 For details on how to set that up see the documentation at https://laravel.com/docs/5.8/homestead 
 
 # Usage
-http://homestead.test/shipping_rate/ should be used as the crud API endpoint
-With http://homestead.test/shipping_rate/calculate/ being used as the endpoint to calculate the rates.
+http://homestead.test/shipping_rate/ should be used as the crud API endpoint with http://homestead.test/shipping_rate/calculate/ being used as the endpoint to calculate the shippingg rates and update the order totals.
 
 # To Do
 Add unit test
