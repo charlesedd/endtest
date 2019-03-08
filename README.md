@@ -5,7 +5,9 @@ A work in progress solution for End programming test to create a micro services 
 # Installation
 This project is designed to be run inside the laveral homestead vagrant container
 For details on how to set that up see the documentation at https://laravel.com/docs/5.8/homestead 
+
 composer install
+
 run migrations 
 
 # Usage
