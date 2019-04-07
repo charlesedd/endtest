@@ -6,15 +6,15 @@ This project is designed to be run inside the laveral homestead vagrant containe
 For details on how to set that up see the documentation at https://laravel.com/docs/5.8/homestead 
 
 composer install
---composer global require "laravel/installer"
+```composer global require "laravel/installer"```
 
 run migrations 
---php artisan migrate
+```php artisan migrate```
 
 Add the data via the shipping data via the end points
 
 Run the unit tests
---phpunit
+```phpunit```
 These should fail without the data in the DB
 
 # Usage
