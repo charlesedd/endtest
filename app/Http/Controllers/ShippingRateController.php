@@ -16,6 +16,7 @@ class ShippingRateController extends Controller
     public function index()
     {
         //
+        return ShippingRate::all();
     }
 
     /**
@@ -48,6 +49,7 @@ class ShippingRateController extends Controller
         $shippingRate->shipping_fee   = $request->input('shipping_fee');
 
         $shippingRate->save();
+        return response()->json($shippingRate, 201);
         //
     }
 
@@ -55,11 +57,13 @@ class ShippingRateController extends Controller
      * Display the specified resource.
      *
      * @param  \App\ShippingRate  $shippingRate
-     * @return \Illuminate\Http\Response
-     */
-    public function show(ShippingRate $shippingRate)
+     * @return \Illuminate\Http\Response     */
+    public function show($id)
     {
         //
+        $countryCode = 'UK';
+        $rate = ShippingRate::where('id', $id) ->get();
+        return $rate;
     }
 
     /**
@@ -71,6 +75,7 @@ class ShippingRateController extends Controller
     public function edit(ShippingRate $shippingRate)
     {
         //
+
     }
 
     /**
@@ -83,6 +88,16 @@ class ShippingRateController extends Controller
     public function update(Request $request, ShippingRate $shippingRate)
     {
         //
+
+        $shippingRate->name = $request->input('name');
+        $shippingRate->country_code  = $request->input('country_code');
+        $shippingRate->from_value  = $request->input('from_value');
+        $shippingRate->to_value  = $request->input('to_value');
+        $shippingRate->weight  = $request->input('weight');
+        $shippingRate->shipping_fee   = $request->input('shipping_fee');
+
+        $shippingRate->save();
+        return response()->json($shippingRate, 200);
     }
 
     /**
@@ -94,6 +109,8 @@ class ShippingRateController extends Controller
     public function destroy(ShippingRate $shippingRate)
     {
         //
+        $shippingRate->delete();
+        return response()->json($shippingRate, 204);
     }
 
     public function calculate(Request $request)

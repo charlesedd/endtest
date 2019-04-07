@@ -21,6 +21,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
         'shipping_rate',
+        'shipping_rate/*',
         'shipping_rate/calculate'
     ];
 }
