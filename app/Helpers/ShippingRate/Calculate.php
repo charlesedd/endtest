@@ -40,6 +40,24 @@ class Calculate {
         catch (\Exception $e){
             return $e->getMessage();
         }
+        $orderDetails = ShippingRateCalculate::calculateShippingRate($price, $orderWeight, $countryCode, $rate);
+
+        return $orderDetails;
+
+    }
+
+    /**
+     * @param $price
+     * @param $orderWeight
+     * @param $countryCode
+     * @param $rate
+     * @return array
+     */
+    public static function calculateShippingRate($price, $orderWeight, $countryCode, $rate){
+
+        //- if country_code = "JP", apply shipping fee only if price is from_value > price <= to_value, weight is ignored.
+        //- if country_code = "UK", apply shipping fee only if provided order weight < ShippingRate weight, price is ignored.
+        //- if any other country_code, apply shipping fee if from_value > price <= to_value or provided order weight < ShippingRate weight.
 
         $calculatedFeeBasedOnPrice = 0;
         $calculatedFeeBasedOnWeight = 0;
